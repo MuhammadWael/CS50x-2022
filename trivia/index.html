@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            document.addEventListener('DOMContentLoaded', function(){
+                let correct= document.querySelector('.correct');
+                correct.addEventListener('click',function(){
+                    correct.style.backgroundColor ='green';
+                    document.querySelector('#feedback_choices').innerHTML ='Correct!';
+                });
+                let incorrect = document.querySelectorAll('.incorrect');
+                for(let i = 0; i < incorrect.length; i++) {
+                    incorrect[i].addEventListener('click', function(){
+                        incorrect[i].style.backgroundColor = 'red';
+                        document.querySelector('#feedback_choices').innerHTML ='Incorrect!!';
+                    });
+                }
+                document.querySelector('#check').addEventListener('click',function(){
+                    let input = document.querySelector('input');
+                    if(input.value=='Sponge pop square pants'){
+                        input.style.backgroungColor = 'green';
+                        document.querySelector('#feedback_input').innerHTML = 'Correct';
+                    } else {
+                        input.style.backgroundColor = 'red';
+                        document.querySelector('#feedback_input').innerHTML = 'incorrect';
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>What is the approximate number of people in the World ?</h3>
+                <button class="incorrect">4 Billion</button>
+                <button class="incorrect">6 Billion</button>
+                <button class="incorrect">5.5 Billion</button>
+                <button class="correct">8 Billion</button>
+                <p id="feedback_choices"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>Who lives in the sea and people love ?</h3>
+                <input type="text" >
+                <button id="check">Check answer</button>
+                <p id="feedback_input"></p>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Histroy
+{% endblock %}
+
+{% block main %}
+    <h3>Hello , {{name}} Your balance is: {{balance}}</h3>
+    <h4>Bought</h4>
+    <table class="table table-striped">
+        <tr>
+            <th>Symbol</th>
+            <th>Name</th>
+            <th>Shares</th>
+            <th>Price</th>
+        </tr>
+        <tr>
+            {% for i in users_stocks_sold %}
+                <td>{{i.stock_symbol}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.shares}}</td>
+                <td>{{i.price*i.shares}}</td>
+            {% endfor %}
+        </tr>
+    </table>
+    <h4>Sold</h4>
+    <table class="table table-striped">
+        <tr>
+            <th>Symbol</th>
+            <th>Name</th>
+            <th>Shares</th>
+            <th>Price</th>
+        </tr>
+        <tr>
+            {% for i in users_stocks_sold %}
+                <td>{{i.symbol}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.shares}}</td>
+                <td>{{i.price*i.shares}}</td>
+            {% endfor %}
+        </tr>
+    </table>
+{% endblock %}

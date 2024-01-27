@@ -1,0 +1,15 @@
+#include <stdio.h>
+int main()
+{
+    int x,i,c;
+    scanf("%d",&x);
+    for(i=1;i<x;i++)
+    {
+        for(c=1;c{<(x-i);c++)
+        printf(" ");
+
+        for(c=1;c<=i;c++)
+        printf("#");
+    }
+
+}
